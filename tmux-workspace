@@ -74,7 +74,7 @@ if [ $# != 0 ]; then
     else
         cmd="tmux -u attach -t \"${session_name}\""
     fi
-    echo $cmd
+
     res=$(eval "$cmd && echo \"success\" || echo \"fail\"")
 
     if [[ "$res" == "success" ]]; then
