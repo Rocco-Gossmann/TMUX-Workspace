@@ -36,7 +36,7 @@ echo "usage: $(basename $0) sessionname [windowname] [-v] [-c command1 command2]
 }
 
 #===============================================================================
-# help text, if the function is called with any kind of parameter
+# Start Main Logic
 #===============================================================================
 function isCtlArg {
     local me=`grep -e ^- <<< "$1"`
