@@ -36,6 +36,14 @@ usage: tmux-workspace [sessionname] [windowname] [-v] [-c command1 command2] ...
 
 ## changelog:
 
+### Version 4.0
+    - bugfix: TMUX will now be launched in UTF-8 Mode.
+      (fixes NerdFont rendering issues in certain Terminals)
+
+    - bugfix: TMUX-Workspace will no longer try to reopen panels of a workspace,
+      if that workspace is already open.
+
+
 ### Version 3.1
     - bugfix: When calling the command with the same session-name, as an existing one,
               the script would attach to the wrong session if it wasn't last in the list
