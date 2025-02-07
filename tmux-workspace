@@ -33,6 +33,7 @@ echo "usage: $(basename $0) sessionname [windowname] [-v] [-c command1 command2]
                             0(If no command is given, the current shell will be used)
 
 "
+exit
 }
 
 #===============================================================================
@@ -49,7 +50,6 @@ function isCtlArg {
     fi
 }
 
-
 if [ $# != 0 ]; then
 
     seditor="${SHELL}"
@@ -63,10 +63,10 @@ if [ $# != 0 ]; then
     if [ $(isCtlArg "$1") == "nope" ]; then
         command=$command"-s'$1' "
         session_name="$1"
+
         ((first=2))
     else
         print_help
-        exit;
     fi
 
     if [ -n "${TMUX}" ]; then

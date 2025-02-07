@@ -1,8 +1,12 @@
 # TMUX-Workspace
 A commandline tool meant to make opening a multi-window project in tmux easy
 
+# TMUX-ExtractWindow
+Call this command, to extract the currently active TMUX-Window into its own, new Session
+
 ## how to install
 put the `tmux-workspace` executable/script into a folder available in your $PATH.
+put the `tmux-extractwindow` executable/script into a folder available in your $PATH.
 
 ## how to use it
 Calling `tmux-workspace` without any parameters results in this help output.
@@ -36,13 +40,16 @@ usage: tmux-workspace [sessionname] [windowname] [-v] [-c command1 command2] ...
 
 ## changelog:
 
+### Version 5.0
+    - feat: added `tmux-extractwindow` script.
+      (moves the currently active Window into its own, new Session)
+
 ### Version 4.0
     - bugfix: TMUX will now be launched in UTF-8 Mode.
       (fixes NerdFont rendering issues in certain Terminals)
 
     - bugfix: TMUX-Workspace will no longer try to reopen panels of a workspace,
       if that workspace is already open.
-
 
 ### Version 3.1
     - bugfix: When calling the command with the same session-name, as an existing one,

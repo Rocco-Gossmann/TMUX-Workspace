@@ -1,0 +1,30 @@
+#!/bin/bash
+
+#===============================================================================
+# help text, if the function is called with any kind of parameter
+#===============================================================================
+function print_help {
+echo "usage: $(basename $0) 
+    Only call from within a tmux-session
+"
+exit;
+}
+
+#===============================================================================
+# Start Main Logic
+#===============================================================================
+
+pane=$TMUX_PANE
+[[ "$pane" == "" ]] && print_help
+
+workspace_name=`tmux display-message -p '#S'`
+[[ "$workspace_name" == "" ]] && print_help
+
+session_name="$workspace_name-$pane"
+
+tmux -u new -s "$session_name" -d && \
+    tmux -u move-window -t "$session_name" && \
+    tmux -u kill-window -t "$session_name":0 && \
+    tmux -u switch-client -t "$session_name"
+
+
